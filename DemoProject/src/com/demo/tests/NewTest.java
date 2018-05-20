@@ -17,6 +17,7 @@ public class NewTest {
 	@BeforeClass
 	public void beforeClass() {
 		System.out.println("Im in Before Class");
+		System.setProperty("webdriver.chrome.driver", "chromedriver");
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 	}
