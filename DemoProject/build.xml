@@ -41,6 +41,7 @@
 		<mkdir dir="${testng-report-dir}" />
 		<testng outputdir="${testng-report-dir}" classpathref="classpath" useDefaultListeners="true">
 			<xmlfileset dir="${basedir}" includes="GoogleTestNG.xml" />
+			<sysproperty key="isAntBuild" value="true" />
 		</testng>
 	</target>
 

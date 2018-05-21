@@ -1,17 +1,15 @@
 package com.demo.tests;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import com.demo.library.Library;
 import com.demo.pages.HomePage;
 
 public class NewTest {
@@ -21,9 +19,8 @@ public class NewTest {
 	@BeforeClass
 	public void beforeClass() throws Exception {
 		System.out.println("Im in Before Class");
-//		System.setProperty("webdriver.chrome.driver", relToAbs("/chromedriver"));
-		driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		Library l = new Library();
+		driver = l.launchDriverInstance();
 	}
 
 	@Test

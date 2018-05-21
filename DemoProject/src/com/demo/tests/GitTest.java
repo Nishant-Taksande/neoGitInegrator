@@ -1,13 +1,11 @@
 package com.demo.tests;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import com.demo.library.Library;
 import com.demo.pages.GitHomePage;
 
 public class GitTest {
@@ -17,9 +15,8 @@ public class GitTest {
 	@BeforeClass
 	public void beforeClass() {
 		System.out.println("Im in Before Class");
-		System.setProperty("webdriver.chrome.driver", "chromedriver");
-		driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		Library l = new Library();
+		driver = l.launchDriverInstance();
 	}
 
 	@Test
@@ -30,7 +27,6 @@ public class GitTest {
 		ghp.verifyUI();
 	}
 
-	
 	@AfterClass
 	public void afterClass() {
 		System.out.println("Im in After Class");
