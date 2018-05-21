@@ -3,8 +3,9 @@
  */
 package com.demo.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
+import com.demo.library.Library;
 
 /**
  * @author asthammishra
@@ -26,9 +27,9 @@ public class HomePage {
 	}
 
 	public void verifyUI() {
-		driver.findElement(By.xpath(searchEdit));
-		driver.findElement(By.xpath(searchButton));
-		driver.findElement(By.xpath(feelingLucky));
+		Library.finel(driver, searchEdit);
+		Library.finel(driver, searchButton);
+		Library.finel(driver, feelingLucky);
 	}
 
 }

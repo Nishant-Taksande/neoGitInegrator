@@ -3,8 +3,9 @@
  */
 package com.demo.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
+import com.demo.library.Library;
 
 /**
  * @author asthammishra
@@ -25,9 +26,9 @@ public class GitHomePage {
 	}
 
 	public void verifyUI() {
-		driver.findElement(By.xpath(features));
-		driver.findElement(By.xpath(business));
-		driver.findElement(By.xpath(explore));
+		Library.finel(driver, features);
+		Library.finel(driver, business);
+		Library.finel(driver, explore);
 	}
 
 }
