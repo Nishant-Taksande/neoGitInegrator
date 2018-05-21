@@ -1,5 +1,9 @@
 package com.demo.tests;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -15,15 +19,15 @@ public class NewTest {
 	WebDriver driver;
 
 	@BeforeClass
-	public void beforeClass() {
+	public void beforeClass() throws Exception {
 		System.out.println("Im in Before Class");
-		System.setProperty("webdriver.chrome.driver", "chromedriver");
+//		System.setProperty("webdriver.chrome.driver", relToAbs("/chromedriver"));
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 	}
 
 	@Test
-	public void f() {
+	public void testMethod() throws Exception {
 		System.out.println("Im in Test Method");
 		driver.get("http://www.google.com");
 		HomePage hp = new HomePage(driver);
@@ -31,10 +35,17 @@ public class NewTest {
 	}
 
 	@AfterClass
-	public void afterClass() {
+	public void afterClass() throws Exception {
 		System.out.println("Im in After Class");
 		driver.close();
 		driver.quit();
+	}
+	
+	public String relToAbs(String relativePath) throws IOException {
+		
+		Path pa = Paths.get("chromedriver");
+		System.out.println(pa.toAbsolutePath().toString()); 
+		return pa.toAbsolutePath().toString();
 	}
 
 }
